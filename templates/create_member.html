@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Member</title>
+</head>
+<body>
+    <h1>Add New Member</h1>
+    <form method="post">
+        Name: <input type="text" name="name"><br>
+        Email: <input type="email" name="email"><br>
+        <button type="submit">Add Member</button>
+    </form>
+    <a href="{{ url_for('list_members') }}">Back to Members</a>
+</body>
+</html>

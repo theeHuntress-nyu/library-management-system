@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Reservation</title>
+</head>
+<body>
+    <h1>Reserve a Book</h1>
+    <form method="post">
+        Member:
+        <select name="member_id">
+            {% for member in members %}
+                <option value="{{ member.id }}">{{ member.name }}</option>
+            {% endfor %}
+        </select><br>
+        Book:
+        <select name="book_id">
+            {% for book in books %}
+                <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Reserve</button>
+    </form>
+    <a href="{{ url_for('list_reservations') }}">Back to Reservations</a>
+</body>
+</html>
