@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Reservation</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Books</a> |
+        <a href="{{ url_for('list_members') }}">Members</a> |
+        <a href="{{ url_for('list_reservations') }}">Reservations</a> |
+        <a href="{{ url_for('list_fines') }}">Fines</a> |
+        <a href="{{ url_for('create_loan') }}">Loan Book</a>
+    </nav>
+    <hr>
+
+    <h1>Create Reservation</h1>
+
+    <form method="post">
+        <label for="member_id">Member:</label>
+        <select name="member_id" required>
+            {% for member in members %}
+            <option value="{{ member.id }}">{{ member.name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="book_id">Book:</label>
+        <select name="book_id" required>
+            {% for book in books %}
+            <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Reserve Book</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('list_reservations') }}">Back to Reservations</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Loan</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Books</a> |
+        <a href="{{ url_for('list_members') }}">Members</a> |
+        <a href="{{ url_for('list_reservations') }}">Reservations</a> |
+        <a href="{{ url_for('list_fines') }}">Fines</a> |
+        <a href="{{ url_for('create_loan') }}">Loan Book</a>
+    </nav>
+    <hr>
+
+    <h1>Create Loan</h1>
+
+    <form method="post">
+        <label>Member:</label>
+        <select name="member_id" required>
+            {% for member in members %}
+            <option value="{{ member.id }}">{{ member.name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Book:</label>
+        <select name="book_id" required>
+            {% for book in books %}
+            <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Loan Date (YYYY-MM-DD):</label>
+        <input type="text" name="loan_date" required><br><br>
+
+        <button type="submit">Loan Book</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Books</a>
+</body>
+</html>
